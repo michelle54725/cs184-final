@@ -3,8 +3,7 @@
 <head>
 <title>CS184 Final Project Proposal</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 
 <body>
@@ -12,19 +11,77 @@
 <h1 align="middle">Final Project Proposal</h1>
 <h2 align="middle">Michelle Mao</h2>
 
-<h2 align="middle">Overview</h2>
-<p>Give a high-level overview of what you implemented in this project. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the project.</p>
+<div class="image-blurred-edge">
+    <img src="images/elements1.jpg" style="width:100%;"/>
+</div>
 
-<h2 align="middle">Problem Description</h2>
-<h2 align="middle">Goals and Deliverables</h2>
-    <h3>Stage I</h3>
-    <h3>Stage II</h3>
-    <h3>Stage III</h3>
-<h2 align="middle">Schedule</h2>
-<h2 align="middle">Resources</h2> 
-    <p>
+<h2 align="left">The Last Shader</h2>
+    <p>Extend Project 4 to create four of my own shaders inspired by the four elements. Solo team.</p>
+
+<h2 align="left">Problem Description</h2>
+    <div class="flex_container">
+    <div class="flex_left">
+        <p style="width:600px">When running my raytracing programs in project 3, my CPU was taking some heat (especially with naive implementations). My PC actually crashed once. And this is all for rendering a single still frame! If this is how all graphics are made, then how am I able to play games in real time with 100+ fps without my computer blowing up? That's where a GPU comes in. GPUs run programs in parallel, implementing parts of the graphics pipeline (vertex and/or fragment processing) at much faster speeds. These programs are called shaders.</p>
+        <p style="width:600px">My challenge is in developing a deep understanding of what shaders are--at least enough to implement some cool ones successfully. Because though the significance of shaders in producing high quality real time graphics was pointed out in class, the only explanation of what they actually are and how they work was a few minutes of one lecture that gave an overview of the rasterization pipeline (lecture 6) that, until I went back to review just now, totally flew over my head.</p>
+        <p style="width:600px">In other words, the problem I am trying to solve is my ignorance on real time graphics. As a gamer I feel a sense of obligation to learn more about this topic, and my plan to address it is to extend the portion of a project that leverages the GPU, to leverage it even further, and develop a good understanding of programs that run on GPU.</p>
+    </div>
+    <div class="flex_right">
+        <div class="polaroid">
+            <img src="images/graphics_pipeline.PNG" style="width:100%" />
+                <div class="container">
+                    <p><b>Graphics Pipeline</b></p>
+                </div>
+        </div>
+    </div>
+    </div>
+
+<h2 align="left">Goals and Deliverables</h2>
+    <div class="flex_container">
+    <div class="flex_left">
+        <img src="images/elements3.jpg" style="width:100%"/>
+    </div>
+    <div class="flex_right">
+        <h3>Target Goals</h3>
+        <ul>
+            <li>Create 4 shaders that are somehow reminiscent of the four elements: water, earth, fire, air. </li>
+            <li>GUI that toggles between shaders OR allows customization in real time</li>
+        </ul>
+
+        <h3>Stretch Goals</h3>
+        <ul>
+            <li>Generate procedural scenes using a time uniform</li>
+            <li>Apply shaders to object types beyond the sphere/cloth provided in project 4</li>
+        </ul>
+
+        <h3>Success metrics</h3>
+        <ul>
+            <li>If I show a random person the results of the four shaders, what is the probability that they think Avatar: The Last Airbender?</li>
+            <li>Rendering speed is similar to those implemented in project 4</li>
+            <li>Accuracy in apperance of water, earth, fire, air as seen in real life</li>
+        </ul>
+    </div>
+    </div>
+
+<h2 align="left">Schedule</h2>
+    <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
+        <li><b>Days  1-3:  </b>1) Complete Project 4, and 2) play around with shaders implemented </li>
+        <li><b>Days  4-6:  </b>Choose one of four elements and 1) understand some existing shaders replicating it, and 2) write my own shader for it</li>
+        <li><b>Days 7-10:</b> Write all four shaders</li>
+        <li><b>Days 11-14:</b> Editing existing GUI + stretch goals</li>
+    </ul>
+<h2 align="left">Resources</h2> 
+    <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
+        <li><b>Software: </b>OpenGL/GLSL, Visual Studio</li>
+        <li><b>Hardware: </b>i7-950, NVIDIA GeForce GTX 950</li>
+        <li><b>OS: </b>Windows 10</li>
+    </ul>
+    <p style="margin-bottom:4px"><b>References:</b></p>
+    <p class="none">
         <a href="https://cs184.eecs.berkeley.edu/su20/docs/proj4-part-5">Project 4: Part 5</a><br />
-        <a href="https://www.youtube.com/watch?v=T-HXmQAMhG0">Shaders 101</a> by Makin' Stuff Look Good
+        <a href="https://learnopengl.com/Getting-started/Shaders">Learn OpenGL</a><br />
+        <a href="https://www.youtube.com/watch?v=T-HXmQAMhG0">Shaders 101</a> by Makin' Stuff Look Good<br />
+        <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Toon_Shading">Toon Shading</a> Wikibooks Page<br />
+        <a href="https://shadertoy.com">Shadertoy</a> for inspiration   
     </p>
 
 </body>
