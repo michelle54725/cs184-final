@@ -6,7 +6,16 @@
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 
-<body>
+<body onload="main();">
+    A not-so-elegant tabbed webpage.
+
+<script src="script.js"></script>
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Proposal')">Proposal</button>
+  <button class="tablinks" onclick="openTab(event, 'Milestone')">Milestone Report</button>
+</div>
+
+<div id="Proposal" class="tabcontent">
 <h1 align="middle">CS 184: Computer Graphics and Imaging | Summer 2020</h1>
 <h1 align="middle">Final Project Proposal</h1>
 <h2 align="middle">Michelle Mao</h2>
@@ -83,6 +92,70 @@
         <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Toon_Shading">Toon Shading</a> Wikibooks Page<br />
         <a href="https://shadertoy.com">Shadertoy</a> for inspiration   
     </p>
+</div>
+
+<div id="Milestone" class="tabcontent">    
+    <canvas id="surface" width="800" height="600">
+        Oops! Your browser does not support HTML5.
+    </canvas>
+    <br/>
+    <script src ="gl-matrix.js"></script>
+    <script src ="app.js"></script>
+
+</br>
+    <a href="https://docs.google.com/document/d/1uD7v1t9abujCZGSibI2V1CcjVzoFBMB8Vj1E2K0c58g/edit?usp=sharing">Proposal feedback</a>
+    <p>Hi John! Thank you for the thoughtful and kind feedback. You're entirely correct in pointing out that I lacked a technical approach in my proposal. Frankly, at that point I hadn't completed the shaders portion of project 4 yet so didn't even know what GLSL looked like yet, and of course that showed in my proposal :'). </p>
+    <p>I'm in a bit of a pickle and would love some advice. Here's what I've done so far:
+        <ol style="line-height:1.5em">
+            <li>Followed this tutorial to implement toon shading in Custom.frag:</li>
+            <ul><li>https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Smooth_Specular_Highlights</li></ul>
+            <ul><li><b>Resulted in images/videos below</b></li></ul>
+            <li>Realized I need another object that’s not a sphere to really see the effects.</li>
+            <li>Tried to figure out how to add my own objects.</li>
+            <li>Realized adding objects on top of the proj4 codebase is complex and not worth.</li>
+            <li>Decided to turn to WebGL</li>
+            <ul><li>Followed along this series: https://www.youtube.com/watch?v=kB0ZVUrI4Aw</li></ul>
+            <ul><li>Developed a good understanding of how WebGL works (also realizing it's pretty rough/tedious without another API). Got stuck on lighting portion (video is old and used deprecated code)</li></ul>
+            <ul><li>Found this: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL </li></ul>
+            <ul><li><b>Resulted in WebGL canvas above.</b> It's just the texture shader with my own texture and direct vertex lighting.</li></ul>
+        </ol>
+    </p>
+    <p>Along the way I was looking for examples that I could use as reference but it seems that I had a misunderstanding of shaders. If I understand them correctly now, I believe I have to find a specific 3D object/scene that has enough complexities to it (curves, shadows, etc.) such that the lighting and colors can actually be tweaked to produce the animated/toon effect I'm looking for, i.e. even if I had a working shader, using it on a sphere won't work. Thus my job here is not just to write shaders but to also create my own scenes (or find them? But I haven't been able to do that). Which makes my goal more far reaching than I anticipated.</p>
+    <p>I also realized that simply sampling a texture of a PNG of the four elements could do the trick, but that's lame.</p>
+    <p>I have WebGL running, can reproduce shaders from proj4 in WebGL syntax, but no longer believe in my initial goal of the four elements :(. I'm stuck on how to render different objects (e.g. a water drop?) and how I can go beyond texture sampling to produce something that looks like air/water/earth/fire that actually utilizes the course material on radiometry/photometry and isn't just a cool animation. I'm worried that if I venture into the world of three.js or other APIs that I'm unfamiliar with that I'll be spending too much time on learning how to use them than actually practicing the course content and implementing shaders. Any guidance would be much appreciated.
+    </p>
+
+
+    <table>
+        <tr>
+            <td align="middle">
+                <img src="images/phong_1.PNG" width="400px"/>
+                <figcaption align="middle">Phong shading</figcaption>
+            </td>
+            <td align="middle">
+                <img src="images/toon_1.PNG" width="400px"/>
+                <figcaption align="middle">Toon(?) shading</figcaption>
+            </td>
+        </tr>
+        <tr>
+            <td align="middle">
+                <video width="500px" controls style="display:block"; margin: 0 auto;>
+                    <source src="videos/phong1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </td>
+            <td align="middle">
+                <video width="500px" controls style="display:block"; margin: 0 auto;>
+                    <source src="videos/toon1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </td>
+        </tr>
+    </table> 
+
+
+</div>
 
 </body>
 </html>
+
