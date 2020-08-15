@@ -88,3 +88,24 @@ div.image-blurred-edge {
   border: 1px solid #ccc;
   border-top: none;
 }
+
+#c1 {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+#c2 {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+#c3 {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+#c4 {
+  width: 100%;
+  height: 600px;
+  display: block;
+}

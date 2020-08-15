@@ -1,160 +1,972 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>CS184 Final Project Proposal</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <title>Mao | CS184 Final Project</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="shortcut icon" href="" />
 </head>
 
-<body onload="main();">
-    A not-so-elegant tabbed webpage.
+<body onload="main(); openTab(event, 'Result');">
 
-<script src="script.js"></script>
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Proposal')">Proposal</button>
-  <button class="tablinks" onclick="openTab(event, 'Milestone')">Milestone Report</button>
-</div>
-
-<div id="Proposal" class="tabcontent">
-<h1 align="middle">CS 184: Computer Graphics and Imaging | Summer 2020</h1>
-<h1 align="middle">Final Project Proposal</h1>
-<h2 align="middle">Michelle Mao</h2>
-
-<div class="image-blurred-edge">
-    <img src="images/elements1.jpg" style="width:100%;"/>
-</div>
-
-<h2 align="left">The Last Shader</h2>
-    <p>Extend Project 4 to create four of my own shaders inspired by the four elements. Solo team.</p>
-
-<h2 align="left">Problem Description</h2>
-    <div class="flex_container">
-    <div class="flex_left">
-        <p style="width:600px">When running my raytracing programs in project 3, my CPU was taking some heat (especially with naive implementations). My PC actually crashed once. And this is all for rendering a single still frame! If this is how all graphics are made, then how am I able to play games in real time with 100+ fps without my computer blowing up? That's where a GPU comes in. GPUs run programs in parallel, implementing parts of the graphics pipeline (vertex and/or fragment processing) at much faster speeds. These programs are called shaders.</p>
-        <p style="width:600px">My challenge is in developing a deep understanding of what shaders are--at least enough to implement some cool ones successfully. Because though the significance of shaders in producing high quality real time graphics was pointed out in class, the only explanation of what they actually are and how they work was a few minutes of one lecture that gave an overview of the rasterization pipeline (lecture 6) that, until I went back to review just now, totally flew over my head.</p>
-        <p style="width:600px">In other words, the problem I am trying to solve is my ignorance on real time graphics. As a gamer I feel a sense of obligation to learn more about this topic, and my plan to address it is to extend the portion of a project that leverages the GPU, to leverage it even further, and develop a good understanding of programs that run on GPU.</p>
+    <h1 align="middle">CS 184: Computer Graphics and Imaging | Summer 2020</h1>
+    <h2 align="middle">Michelle Mao</h2>
+    <script src="/js/script.js"></script>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Proposal')">Proposal</button>
+        <button class="tablinks" onclick="openTab(event, 'Milestone')">Milestone Report</button>
+        <button class="tablinks" onclick="openTab(event, 'Result')">Result</button>
     </div>
-    <div class="flex_right">
-        <div class="polaroid">
-            <img src="images/graphics_pipeline.PNG" style="width:100%" />
-                <div class="container">
-                    <p><b>Graphics Pipeline</b></p>
-                </div>
+
+    <div id="Proposal" class="tabcontent">
+        <h1 align="middle">Final Project Proposal</h1>
+
+        <div class="image-blurred-edge">
+            <img src="images/elements1.jpg" style="width:100%;" />
         </div>
-    </div>
-    </div>
 
-<h2 align="left">Goals and Deliverables</h2>
-    <div class="flex_container">
-    <div class="flex_left">
-        <img src="images/elements3.jpg" style="width:100%"/>
-    </div>
-    <div class="flex_right">
-        <h3>Target Goals</h3>
-        <ul>
-            <li>Create 4 shaders that are somehow reminiscent of the four elements: water, earth, fire, air. </li>
-            <li>GUI that toggles between shaders OR allows customization in real time</li>
+        <h2 align="left">The Last Shader</h2>
+        <p>Extend Project 4 to create four of my own shaders inspired by the four elements. Solo team.</p>
+
+        <h2 align="left">Problem Description</h2>
+        <div class="flex_container">
+            <div class="flex_left">
+                <p style="width:600px">When running my raytracing programs in project 3, my CPU was taking some heat (especially with naive implementations). My PC actually crashed once. And this is all for rendering a single still frame! If this is how all graphics are made, then how am I able to play games in real time with 100+ fps without my computer blowing up? That's where a GPU comes in. GPUs run programs in parallel, implementing parts of the graphics pipeline (vertex and/or fragment processing) at much faster speeds. These programs are called shaders.</p>
+                <p style="width:600px">My challenge is in developing a deep understanding of what shaders are--at least enough to implement some cool ones successfully. Because though the significance of shaders in producing high quality real time graphics was pointed out in class, the only explanation of what they actually are and how they work was a few minutes of one lecture that gave an overview of the rasterization pipeline (lecture 6) that, until I went back to review just now, totally flew over my head.</p>
+                <p style="width:600px">In other words, the problem I am trying to solve is my ignorance on real time graphics. As a gamer I feel a sense of obligation to learn more about this topic, and my plan to address it is to extend the portion of a project that leverages the GPU, to leverage it even further, and develop a good understanding of programs that run on GPU.</p>
+            </div>
+            <div class="flex_right">
+                <div class="polaroid">
+                    <img src="images/graphics_pipeline.PNG" style="width:100%" />
+                    <div class="container">
+                        <p><b>Graphics Pipeline</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 align="left">Goals and Deliverables</h2>
+        <div class="flex_container">
+            <div class="flex_left">
+                <img src="images/elements3.jpg" style="width:100%" />
+            </div>
+            <div class="flex_right">
+                <h3>Target Goals</h3>
+                <ul>
+                    <li>Create 4 shaders that are somehow reminiscent of the four elements: water, earth, fire, air. </li>
+                    <li>GUI that toggles between shaders OR allows customization in real time</li>
+                </ul>
+
+                <h3>Stretch Goals</h3>
+                <ul>
+                    <li>Generate procedural scenes using a time uniform</li>
+                    <li>Apply shaders to object types beyond the sphere/cloth provided in project 4</li>
+                </ul>
+
+                <h3>Success metrics</h3>
+                <ul>
+                    <li>If I show a random person the results of the four shaders, what is the probability that they think Avatar: The Last Airbender?</li>
+                    <li>Rendering speed is similar to those implemented in project 4</li>
+                    <li>Accuracy in apperance of water, earth, fire, air as seen in real life</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 align="left">Schedule</h2>
+        <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
+            <li><b>Days  1-3:  </b>1) Complete Project 4, and 2) play around with shaders implemented </li>
+            <li><b>Days  4-6:  </b>Choose one of four elements and 1) understand some existing shaders replicating it, and 2) write my own shader for it</li>
+            <li><b>Days 7-10:</b> Write all four shaders</li>
+            <li><b>Days 11-14:</b> Editing existing GUI + stretch goals</li>
         </ul>
-
-        <h3>Stretch Goals</h3>
-        <ul>
-            <li>Generate procedural scenes using a time uniform</li>
-            <li>Apply shaders to object types beyond the sphere/cloth provided in project 4</li>
+        <h2 align="left">Resources</h2>
+        <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
+            <li><b>Software: </b>OpenGL/GLSL, Visual Studio</li>
+            <li><b>Hardware: </b>i7-950, NVIDIA GeForce GTX 950</li>
+            <li><b>OS: </b>Windows 10</li>
         </ul>
-
-        <h3>Success metrics</h3>
-        <ul>
-            <li>If I show a random person the results of the four shaders, what is the probability that they think Avatar: The Last Airbender?</li>
-            <li>Rendering speed is similar to those implemented in project 4</li>
-            <li>Accuracy in apperance of water, earth, fire, air as seen in real life</li>
-        </ul>
+        <p style="margin-bottom:4px"><b>References:</b></p>
+        <p class="none">
+            <a href="https://cs184.eecs.berkeley.edu/su20/docs/proj4-part-5">Project 4: Part 5</a><br />
+            <a href="https://learnopengl.com/Getting-started/Shaders">Learn OpenGL</a><br />
+            <a href="https://www.youtube.com/watch?v=T-HXmQAMhG0">Shaders 101</a> by Makin' Stuff Look Good<br />
+            <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Toon_Shading">Toon Shading</a> Wikibooks Page<br />
+            <a href="https://shadertoy.com">Shadertoy</a> for inspiration
+        </p>
     </div>
+
+
+
+
+    <div id="Milestone" class="tabcontent">
+        <h1 align="middle">Milestone Report</h1>
+
+        <canvas id="surface" width="800" height="600">
+            Oops! Your browser does not support HTML5.
+        </canvas>
+        <br />
+        <script src="/js/gl-matrix.js"></script>
+        <script src="/js/app.js"></script>
+
+        </br>
+        <a href="https://docs.google.com/document/d/1uD7v1t9abujCZGSibI2V1CcjVzoFBMB8Vj1E2K0c58g/edit?usp=sharing">Proposal feedback</a>
+        <p>Hi John! Thank you for the thoughtful and kind feedback. You're entirely correct in pointing out that I lacked a technical approach in my proposal. Frankly, at that point I hadn't completed the shaders portion of project 4 yet so didn't even know what GLSL looked like yet, and of course that showed in my proposal :'). </p>
+        <p>
+            I'm in a bit of a pickle and would love some advice. Here's what I've done so far:
+            <ol style="line-height:1.5em">
+                <li>Followed this tutorial to implement toon shading in Custom.frag:</li>
+                <ul><li>https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Smooth_Specular_Highlights</li></ul>
+                <ul><li><b>Resulted in images/videos below</b></li></ul>
+                <li>Realized I need another object that’s not a sphere to really see the effects.</li>
+                <li>Tried to figure out how to add my own objects.</li>
+                <li>Realized adding objects on top of the proj4 codebase is complex and not worth.</li>
+                <li>Decided to turn to WebGL</li>
+                <ul><li>Followed along this series: https://www.youtube.com/watch?v=kB0ZVUrI4Aw</li></ul>
+                <ul><li>Developed a good understanding of how WebGL works (also realizing it's pretty rough/tedious without another API). Got stuck on lighting portion (video is old and used deprecated code)</li></ul>
+                <ul><li>Found this: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL </li></ul>
+                <ul><li><b>Resulted in WebGL canvas above.</b> It's just the texture shader with my own texture and direct vertex lighting.</li></ul>
+            </ol>
+        </p>
+        <p>Along the way I was looking for examples that I could use as reference but it seems that I had a misunderstanding of shaders. If I understand them correctly now, I believe I have to find a specific 3D object/scene that has enough complexities to it (curves, shadows, etc.) such that the lighting and colors can actually be tweaked to produce the animated/toon effect I'm looking for, i.e. even if I had a working shader, using it on a sphere won't work. Thus my job here is not just to write shaders but to also create my own scenes (or find them? But I haven't been able to do that). Which makes my goal more far reaching than I anticipated.</p>
+        <p>I also realized that simply sampling a texture of a PNG of the four elements could do the trick, but that's lame.</p>
+        <p>
+            I have WebGL running, can reproduce shaders from proj4 in WebGL syntax, but no longer believe in my initial goal of the four elements :(. I'm stuck on how to render different objects (e.g. a water drop?) and how I can go beyond texture sampling to produce something that looks like air/water/earth/fire that actually utilizes the course material on radiometry/photometry and isn't just a cool animation. I'm worried that if I venture into the world of three.js or other APIs that I'm unfamiliar with that I'll be spending too much time on learning how to use them than actually practicing the course content and implementing shaders. Any guidance would be much appreciated.
+        </p>
+
+
+        <table>
+            <tr>
+                <td align="middle">
+                    <img src="images/phong_1.PNG" width="400px" />
+                    <figcaption align="middle">Phong shading</figcaption>
+                </td>
+                <td align="middle">
+                    <img src="images/toon_1.PNG" width="400px" />
+                    <figcaption align="middle">Toon(?) shading</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td align="middle">
+                    <video width="480px" controls=controls style="display:block" ;=; margin:=margin 0=0 auto;=auto;>
+                        <source src="videos/phong1.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+                <td align="middle">
+                    <video width="480px" controls=controls style="display:block" ;=; margin:=margin 0=0 auto;=auto;>
+                        <source src="videos/toon1.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+            </tr>
+        </table>
     </div>
 
-<h2 align="left">Schedule</h2>
-    <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
-        <li><b>Days  1-3:  </b>1) Complete Project 4, and 2) play around with shaders implemented </li>
-        <li><b>Days  4-6:  </b>Choose one of four elements and 1) understand some existing shaders replicating it, and 2) write my own shader for it</li>
-        <li><b>Days 7-10:</b> Write all four shaders</li>
-        <li><b>Days 11-14:</b> Editing existing GUI + stretch goals</li>
-    </ul>
-<h2 align="left">Resources</h2> 
-    <ul style="list-style:none; padding-left:0; letter-spacing: 0.005em; line-height: 2;">
-        <li><b>Software: </b>OpenGL/GLSL, Visual Studio</li>
-        <li><b>Hardware: </b>i7-950, NVIDIA GeForce GTX 950</li>
-        <li><b>OS: </b>Windows 10</li>
-    </ul>
-    <p style="margin-bottom:4px"><b>References:</b></p>
-    <p class="none">
-        <a href="https://cs184.eecs.berkeley.edu/su20/docs/proj4-part-5">Project 4: Part 5</a><br />
-        <a href="https://learnopengl.com/Getting-started/Shaders">Learn OpenGL</a><br />
-        <a href="https://www.youtube.com/watch?v=T-HXmQAMhG0">Shaders 101</a> by Makin' Stuff Look Good<br />
-        <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Toon_Shading">Toon Shading</a> Wikibooks Page<br />
-        <a href="https://shadertoy.com">Shadertoy</a> for inspiration   
-    </p>
-</div>
 
-<div id="Milestone" class="tabcontent">    
-    <canvas id="surface" width="800" height="600">
-        Oops! Your browser does not support HTML5.
-    </canvas>
-    <br/>
-    <script src ="gl-matrix.js"></script>
-    <script src ="app.js"></script>
+    <div id="Result" class="tabcontent">
+    <h1 align="middle">Final Project Report</h1>
 
-</br>
-    <a href="https://docs.google.com/document/d/1uD7v1t9abujCZGSibI2V1CcjVzoFBMB8Vj1E2K0c58g/edit?usp=sharing">Proposal feedback</a>
-    <p>Hi John! Thank you for the thoughtful and kind feedback. You're entirely correct in pointing out that I lacked a technical approach in my proposal. Frankly, at that point I hadn't completed the shaders portion of project 4 yet so didn't even know what GLSL looked like yet, and of course that showed in my proposal :'). </p>
-    <p>I'm in a bit of a pickle and would love some advice. Here's what I've done so far:
-        <ol style="line-height:1.5em">
-            <li>Followed this tutorial to implement toon shading in Custom.frag:</li>
-            <ul><li>https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Smooth_Specular_Highlights</li></ul>
-            <ul><li><b>Resulted in images/videos below</b></li></ul>
-            <li>Realized I need another object that’s not a sphere to really see the effects.</li>
-            <li>Tried to figure out how to add my own objects.</li>
-            <li>Realized adding objects on top of the proj4 codebase is complex and not worth.</li>
-            <li>Decided to turn to WebGL</li>
-            <ul><li>Followed along this series: https://www.youtube.com/watch?v=kB0ZVUrI4Aw</li></ul>
-            <ul><li>Developed a good understanding of how WebGL works (also realizing it's pretty rough/tedious without another API). Got stuck on lighting portion (video is old and used deprecated code)</li></ul>
-            <ul><li>Found this: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL </li></ul>
-            <ul><li><b>Resulted in WebGL canvas above.</b> It's just the texture shader with my own texture and direct vertex lighting.</li></ul>
-        </ol>
-    </p>
-    <p>Along the way I was looking for examples that I could use as reference but it seems that I had a misunderstanding of shaders. If I understand them correctly now, I believe I have to find a specific 3D object/scene that has enough complexities to it (curves, shadows, etc.) such that the lighting and colors can actually be tweaked to produce the animated/toon effect I'm looking for, i.e. even if I had a working shader, using it on a sphere won't work. Thus my job here is not just to write shaders but to also create my own scenes (or find them? But I haven't been able to do that). Which makes my goal more far reaching than I anticipated.</p>
-    <p>I also realized that simply sampling a texture of a PNG of the four elements could do the trick, but that's lame.</p>
-    <p>I have WebGL running, can reproduce shaders from proj4 in WebGL syntax, but no longer believe in my initial goal of the four elements :(. I'm stuck on how to render different objects (e.g. a water drop?) and how I can go beyond texture sampling to produce something that looks like air/water/earth/fire that actually utilizes the course material on radiometry/photometry and isn't just a cool animation. I'm worried that if I venture into the world of three.js or other APIs that I'm unfamiliar with that I'll be spending too much time on learning how to use them than actually practicing the course content and implementing shaders. Any guidance would be much appreciated.
-    </p>
+        <canvas id="c1">
+            Oops! Your browser does not support HTML5.
+        </canvas>
+
+        <script type="module">
+            import * as THREE from './build/three.module.js';
+            import { GLTFLoader } from './examples/jsm/loaders/GLTFLoader.js';
+            import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
+            import { OceanShaders } from './examples/jsm/shaders/OceanShaders.js';
+
+            function main() {
+                const canvas = document.querySelector('#c1');
+                const renderer = new THREE.WebGLRenderer({ canvas });
+
+                const fov = 10;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 100;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.set(0, 10, 20);
+
+                const controls = new OrbitControls(camera, canvas);
+                controls.target.set(0, 5, 0);
+                controls.update();
+
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color('black');
 
 
-    <table>
-        <tr>
-            <td align="middle">
-                <img src="images/phong_1.PNG" width="400px"/>
-                <figcaption align="middle">Phong shading</figcaption>
-            </td>
-            <td align="middle">
-                <img src="images/toon_1.PNG" width="400px"/>
-                <figcaption align="middle">Toon(?) shading</figcaption>
-            </td>
-        </tr>
-        <tr>
-            <td align="middle">
-                <video width="500px" controls style="display:block"; margin: 0 auto;>
-                    <source src="videos/phong1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </td>
-            <td align="middle">
-                <video width="500px" controls style="display:block"; margin: 0 auto;>
-                    <source src="videos/toon1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </td>
-        </tr>
-    </table> 
+                function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
+                    const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+                    const halfFovY = THREE.MathUtils.degToRad(camera.fov * .5);
+                    const distance = halfSizeToFitOnScreen / Math.tan(halfFovY);
+
+                    const direction = (new THREE.Vector3())
+                        .subVectors(camera.position, boxCenter)
+                        .multiply(new THREE.Vector3(1, 0, 1))
+                        .normalize();
+
+                    camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+
+                    camera.near = boxSize / 100;
+                    camera.far = boxSize * 100;
+
+                    camera.updateProjectionMatrix();
+
+                    camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+                }
+
+                // Mesh #1
+                {
+                    const vertexShader = `
+                    varying vec2 vUv;
+                    varying vec3 vPos;
+                    varying vec3 vNormal;
+                    void main()
+                    {
+                        vUv = uv;
+                        vPos = vec3(modelViewMatrix * vec4(position, 1.0));
+                        vNormal = normalize(normalMatrix * normal);
+
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                    }
+                    `
+                    const fragmentShader = `
+                    varying vec3 vPos;
+                    varying vec3 vNormal;
+
+                    uniform vec3 Ka;
+                    uniform vec3 Kd;
+                    uniform vec3 Ks;
+                    uniform vec3 ambient;
+                    uniform vec4 LightPosition;
+                    uniform vec3 LightIntensity;
+                    uniform float _Shininess;
+                    uniform vec4 _SpecColor;
+
+                    uniform vec4 _Color;
+                    uniform vec4 _UnlitColor;
+                    uniform float _DiffuseThreshold;
+
+                    uniform vec4 _OutlineColor;
+                    uniform float _LitOutlineThickness;
+                    uniform float _UnlitOutlineThickness;
+
+                    uniform vec3 colorA;
+                    uniform vec3 colorB;
+                    uniform sampler2D uTexture;
+                    varying vec2 vUv;
+
+                    void main() {
+                        vec3 viewDirection = normalize(cameraPosition - vPos);
+                        vec3 lightDirection = normalize(vec3(LightPosition) - vPos);
+                        vec3 v = normalize(vec3(-vPos));
+                        vec3 r = reflect(-lightDirection, vNormal);
+                        float dist_squared = dot(vec3(LightPosition) - vPos, vec3(LightPosition) - vPos);
+                        vec3 i = LightIntensity / dist_squared;
+                        vec3 h = LightPosition.xyz +  cameraPosition - 2.0 * vPos;
+                        float attenuation = 1.0 / sqrt(dist_squared);
+
+                        vec3 diffuse = i * max(dot(lightDirection, vNormal), 0.0);
+                        vec3 specular = i * pow(max(dot(vNormal, h), 0.0), _Shininess);
+
+                        // stylized diffuse illumination
+                    	vec3 color = vec3(_UnlitColor);
+                        if (attenuation * max(0.0, dot(vNormal, lightDirection)) >= _DiffuseThreshold)
+                        {
+                            color = LightIntensity * vec3(_Color);
+                        }
+
+                        // outlines
+                        if (dot(viewDirection, vNormal) < mix(_UnlitOutlineThickness, _LitOutlineThickness, max(0.0, dot(vNormal, lightDirection))))
+                        {
+                            color = LightIntensity * _OutlineColor.rgb;
+                        }
+                       	if (dot(LightPosition.xyz, vNormal) > 0.0 // light on right side
+	                    	&& attenuation * pow(max(0.0, dot(vNormal, h)), _Shininess) > 0.25) // CUSTOMIZABLE: thredhold for highlight intensity
+                    	{
+		                    color = _SpecColor.a
+			                            * LightIntensity * vec3(_SpecColor)
+		                            	+ (1.0 - _SpecColor.a) * color;
+	                    } 
+                        //Phong:
+                        //color = Ka * ambient + Kd * diffuse + Ks * specular;
+
+                        gl_FragColor = texture2D(uTexture, vUv) + vec4(color, 1.0);
+                        //gl_FragColor = mix(texture2D(uTexture, vUv), vec4(color, 1.0), 0.8);
+                        //gl_FragColor = vec4(color, 1.0);
+                    }
+                    `;
+                    const uniforms = {
+                        uTexture: { type: 'sampler2D', value: null },
+                        colorB: { type: 'vec3', value: new THREE.Color(0xe44f28) },
+                        colorA: { type: 'vec3', value: new THREE.Color(0xffbaba) },
+                        Ka: { value: new THREE.Vector3(1.0, 1.0, 1.0) },
+                        Kd: { value: new THREE.Vector3(0.5, 0.5, 0.5) },
+                        Ks: { value: new THREE.Vector3(0.8, 0.8, 0.8) },
+                        LightIntensity: { value: new THREE.Vector4(1.0, 1.0, 1.0, 1.0) },
+                        LightPosition: { value: new THREE.Vector4(5.0, 10.0, 2.0, 1.0) },
+                        _Shininess: { value: 100.0 },
+                        _SpecColor: { type: 'vec4', value: new THREE.Vector4(1.0, 1.0, 1.0, 1.0) },
+                        _Color: { type: 'vec4', value: new THREE.Vector4(0.25, 2.98, 0.87, 1.0) }, //light blue
+                        _UnlitColor: { type: 'vec4', value: new THREE.Vector4(0, 0, 0.545, 1.0) }, //dark blue
+                        _DiffuseThreshold: { type: 'float', value: 0.1 },
+                        _OutlineColor: { type: 'vec4', value: new THREE.Vector4(0, 0, 0, 1) },
+                        _LitOutlineThickness: { type: 'float', value: 0.1 },
+                        _UnlitOutlineThickness: { type: 'float', value: 0.4 },
+                        ambient: { type: 'vec3', value: new THREE.Vector3(0.9569, 0.1922, 0.3137) },
+                    }
+                    const gltfLoader = new GLTFLoader();
+                    gltfLoader.load('./meshes/Fox/glTF/Fox.gltf', (gltf) => {
+                        const root = gltf.scene;
+                        root.traverse(function (child) {
+                            if (child.isMesh) {
+                                uniforms.uTexture.value = child.material.map;
+                                child.material = new THREE.ShaderMaterial({
+                                    uniforms: uniforms,
+                                    vertexShader: vertexShader,
+                                    fragmentShader: fragmentShader,
+                                });
+                            }
+                        });
+                        scene.add(root);
+
+                        // compute the box that contains all the stuff
+                        // from root and below
+                        const box = new THREE.Box3().setFromObject(root);
+
+                        const boxSize = box.getSize(new THREE.Vector3()).length();
+                        const boxCenter = box.getCenter(new THREE.Vector3());
+
+                        // set the camera to frame the box
+                        frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
+
+                        // update the Trackball controls to handle the new size
+                        controls.maxDistance = boxSize * 10;
+                        controls.target.copy(boxCenter);
+                        controls.update();
+                    });
+                }
+
+                // Ground (circle)
+                {
+                    const planeRadius = 80; 
+                    const segments = 128;
+                    const planeGeo = new THREE.CircleGeometry(planeRadius, segments);
+                    const planeMat = new THREE.MeshBasicMaterial({ color: 0xf7fbfd, side:THREE.DoubleSide }); // cloud color
+                    const mesh = new THREE.Mesh(planeGeo, planeMat);
+                    mesh.rotation.x = Math.PI * -.5;
+                    scene.add(mesh);
+                }
+                //Fog
+                {
+                    const color = 0xe6f3f8; // light sky
+                    const fog = new THREE.Fog(color, 1, 1000);
+                    scene.fog = fog;
+                    scene.background = new THREE.Color(color);
+                }
+
+                    //Render
+
+                    function resizeRendererToDisplaySize(renderer) {
+                        const canvas = renderer.domElement;
+                        const width = canvas.clientWidth;
+                        const height = canvas.clientHeight;
+                        const needResize = canvas.width !== width || canvas.height !== height;
+                        if (needResize) {
+                            renderer.setSize(width, height, false);
+                        }
+                        return needResize;
+                    }
+
+                    function render() {
+                        if (resizeRendererToDisplaySize(renderer)) {
+                            const canvas = renderer.domElement;
+                            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                            camera.updateProjectionMatrix();
+                        }
+
+                        renderer.render(scene, camera);
+
+                        requestAnimationFrame(render);
+                    }
+
+                    requestAnimationFrame(render);
+                }
+
+            main();
+
+        </script>
+
+        <canvas id="c2">
+            Oops! Your browser does not support HTML5.
+        </canvas>
+        <script type="module">
+            import * as THREE from './build/three.module.js';
+            import { GLTFLoader } from './examples/jsm/loaders/GLTFLoader.js';
+            import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
+            import { RectAreaLightUniformsLib } from './examples/jsm/lights/RectAreaLightUniformsLib.js';
+            import { RectAreaLightHelper } from './examples/jsm/helpers/RectAreaLightHelper.js';
+
+            function main() {
+                const canvas = document.querySelector('#c2');
+                const renderer = new THREE.WebGLRenderer({ canvas });
+
+                const fov = 10;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 100;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.set(0, 10, 20);
+
+                const controls = new OrbitControls(camera, canvas);
+                controls.target.set(0, 5, 0);
+                controls.update();
+
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color('black');
+
+                // Ground (plane)
+                {
+                    const planeSize = 200;
+                    const width = 4
+                    const loader = new THREE.TextureLoader();
+                    const texture = loader.load('./textures/fire.jpg');
+                    texture.wrapS = THREE.RepeatWrapping;
+                    texture.wrapT = THREE.RepeatWrapping;
+                    texture.magFilter = THREE.NearestFilter;
+                    texture.repeat.set(width, width);
+
+                    const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
+                    const planeMat = new THREE.MeshStandardMaterial({
+                        map: texture,
+                        side: THREE.DoubleSide,
+                    });
+                    const mesh = new THREE.Mesh(planeGeo, planeMat);
+                    mesh.rotation.x = Math.PI * -.5;
+                    scene.add(mesh);
+                }
+
+                // Light: Sky
+                {
+                    const skyColor = 0xB1E1FF;  // light blue
+                    const groundColor = 0xB97A20;  // brownish orange
+                    const intensity = 0.4;
+                    const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+                    //scene.add(light);
+                }
+
+                // Light: Directional (from rightside)
+                {
+                    const color = 0xFFFFFF;
+                    const intensity = 1;
+                    const light = new THREE.DirectionalLight(color, intensity);
+                    light.position.set(3, 10, 2);
+                    scene.add(light);
+                    scene.add(light.target);
+                }
+                // Light: Point below stomach
+                {
+                    const light = new THREE.PointLight(0xce2029, 1, 0, 2); // fire engine red
+                    light.position.set(0, 5, 0);
+                    scene.add(light);
+                }
+                // Light: Point below snout
+                {
+                    const light = new THREE.PointLight(0xce2029, 1, 0, 2); // fire engine red
+                    light.position.set(0, 15, 50);
+                    scene.add(light);
+                }
+
+                // Light: plane (below)
+                {
+                    RectAreaLightUniformsLib.init();
+                    const color = 0xFFFFFF;
+                    const width = 100;
+                    const height = 200;
+                    const intensity = 1.0;
+                    const light = new THREE.RectAreaLight(color, intensity, width, height);
+                    light.position.set(0, -1, 0);
+                    light.lookAt(0, 1, 0);
+                    scene.add(light);
+                    const lightHelper = new RectAreaLightHelper(light);
+                    light.add(lightHelper);
+                }
+                // Light: plane (above)
+                {
+                    RectAreaLightUniformsLib.init();
+                    const color = 0xFFFFFF;
+                    const width = 100;
+                    const height = 199;
+                    const intensity = 1.0;
+                    const light = new THREE.RectAreaLight(color, intensity, width, height);
+                    light.position.set(0, 0.1, 0);
+                    light.lookAt(0, 0, 0);
+                    scene.add(light);
+                    const lightHelper = new RectAreaLightHelper(light);
+                    light.add(lightHelper);
+                }
 
 
-</div>
+                function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
+                    const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+                    const halfFovY = THREE.MathUtils.degToRad(camera.fov * .5);
+                    const distance = halfSizeToFitOnScreen / Math.tan(halfFovY);
+                    // compute a unit vector that points in the direction the camera is now
+                    // in the xz plane from the center of the box
+                    const direction = (new THREE.Vector3())
+                        .subVectors(camera.position, boxCenter)
+                        .multiply(new THREE.Vector3(1, 0, 1))
+                        .normalize();
+
+                    // move the camera to a position distance units way from the center
+                    // in whatever direction the camera was from the center already
+                    camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+
+                    // pick some near and far values for the frustum that
+                    // will contain the box.
+                    camera.near = boxSize / 100;
+                    camera.far = boxSize * 100;
+
+                    camera.updateProjectionMatrix();
+
+                    // point the camera to look at the center of the box
+                    camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+                }
+
+                // Mesh #2
+                {
+                    const gltfLoader = new GLTFLoader();
+                    gltfLoader.load('./meshes/Fox/glTF/Fox.gltf', (gltf) => {
+                        const root = gltf.scene;
+                        scene.add(root);
+
+                        // compute the box that contains all the stuff
+                        // from root and below
+                        const box = new THREE.Box3().setFromObject(root);
+
+                        const boxSize = box.getSize(new THREE.Vector3()).length();
+                        const boxCenter = box.getCenter(new THREE.Vector3());
+
+                        // set the camera to frame the box
+                        frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
+
+                        // update the Trackball controls to handle the new size
+                        controls.maxDistance = boxSize * 10;
+                        controls.target.copy(boxCenter);
+                        controls.update();
+                    });
+                }
+
+                function resizeRendererToDisplaySize(renderer) {
+                    const canvas = renderer.domElement;
+                    const width = canvas.clientWidth;
+                    const height = canvas.clientHeight;
+                    const needResize = canvas.width !== width || canvas.height !== height;
+                    if (needResize) {
+                        renderer.setSize(width, height, false);
+                    }
+                    return needResize;
+                }
+
+                function render() {
+                    if (resizeRendererToDisplaySize(renderer)) {
+                        const canvas = renderer.domElement;
+                        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                        camera.updateProjectionMatrix();
+                    }
+
+                    renderer.render(scene, camera);
+
+                    requestAnimationFrame(render);
+                }
+
+                requestAnimationFrame(render);
+            }
+            main();
+        </script>
+
+        <canvas id="c3">
+            Oops! Your browser does not support HTML5.
+        </canvas>
+        <script type="module">
+            import * as THREE from './build/three.module.js';
+            import { GLTFLoader } from './examples/jsm/loaders/GLTFLoader.js';
+            import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
+
+            function main() {
+                const canvas = document.querySelector('#c3');
+                const renderer = new THREE.WebGLRenderer({ canvas });
+
+                const fov = 10;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 100;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.set(0, 10, 20);
+
+                const controls = new OrbitControls(camera, canvas);
+                controls.target.set(0, 5, 0);
+                controls.update();
+
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color('black');
+
+                // Ground (plane)
+                {
+                    const planeSize = 200;
+
+                    const loader = new THREE.TextureLoader();
+                    const texture = loader.load('./textures/engage.png');
+                    texture.wrapS = THREE.RepeatWrapping;
+                    texture.wrapT = THREE.RepeatWrapping;
+                    texture.magFilter = THREE.NearestFilter;
+                    const repeats = planeSize / 2;
+                    texture.repeat.set(repeats, repeats);
+
+                    const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+                    const planeMat = new THREE.MeshPhongMaterial({
+                        map: texture,
+                        side: THREE.DoubleSide,
+                    });
+                    const mesh = new THREE.Mesh(planeGeo, planeMat);
+                    mesh.rotation.x = Math.PI * -.5;
+                    scene.add(mesh);
+                }
+
+                // Light: Sky
+                {
+                    const skyColor = 0xB1E1FF;  // light blue
+                    const groundColor = 0xB1E1FF;  // light blue
+                    const intensity = 0.9;
+                    const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+                    scene.add(light);
+                }
+
+                // Light: Directional (from rightside)
+                {
+                    const color = 0xFFFFFF;
+                    const intensity = 1;
+                    const light = new THREE.DirectionalLight(color, intensity);
+                    light.position.set(5, 10, 2);
+                    scene.add(light);
+                    scene.add(light.target);
+                }
+
+                function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
+                    const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+                    const halfFovY = THREE.MathUtils.degToRad(camera.fov * .5);
+                    const distance = halfSizeToFitOnScreen / Math.tan(halfFovY);
+                    // compute a unit vector that points in the direction the camera is now
+                    // in the xz plane from the center of the box
+                    const direction = (new THREE.Vector3())
+                        .subVectors(camera.position, boxCenter)
+                        .multiply(new THREE.Vector3(1, 0, 1))
+                        .normalize();
+
+                    // move the camera to a position distance units way from the center
+                    // in whatever direction the camera was from the center already
+                    camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+
+                    // pick some near and far values for the frustum that
+                    // will contain the box.
+                    camera.near = boxSize / 100;
+                    camera.far = boxSize * 100;
+
+                    camera.updateProjectionMatrix();
+
+                    // point the camera to look at the center of the box
+                    camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+                }
+
+                // Mesh #3
+                {
+                    const gltfLoader = new GLTFLoader();
+                    gltfLoader.load('./meshes/Fox/glTF/Fox.gltf', (gltf) => {
+                        const root = gltf.scene;
+                        scene.add(root);
+
+                        // compute the box that contains all the stuff
+                        // from root and below
+                        const box = new THREE.Box3().setFromObject(root);
+
+                        const boxSize = box.getSize(new THREE.Vector3()).length();
+                        const boxCenter = box.getCenter(new THREE.Vector3());
+
+                        // set the camera to frame the box
+                        frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
+
+                        // update the Trackball controls to handle the new size
+                        controls.maxDistance = boxSize * 10;
+                        controls.target.copy(boxCenter);
+                        controls.update();
+                    });
+                }
+
+                function resizeRendererToDisplaySize(renderer) {
+                    const canvas = renderer.domElement;
+                    const width = canvas.clientWidth;
+                    const height = canvas.clientHeight;
+                    const needResize = canvas.width !== width || canvas.height !== height;
+                    if (needResize) {
+                        renderer.setSize(width, height, false);
+                    }
+                    return needResize;
+                }
+
+                function render() {
+                    if (resizeRendererToDisplaySize(renderer)) {
+                        const canvas = renderer.domElement;
+                        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                        camera.updateProjectionMatrix();
+                    }
+
+                    renderer.render(scene, camera);
+
+                    requestAnimationFrame(render);
+                }
+
+                requestAnimationFrame(render);
+            }
+            main();
+        </script>
+
+        <canvas id="c4">
+            Oops! Your browser does not support HTML5.
+        </canvas>
+        <script type="module">
+            import * as THREE from './build/three.module.js';
+            import { GLTFLoader } from './examples/jsm/loaders/GLTFLoader.js';
+            import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
+
+            function main() {
+                const canvas = document.querySelector('#c4');
+                const renderer = new THREE.WebGLRenderer({ canvas });
+
+                const fov = 10;
+                const aspect = 2;  // the canvas default
+                const near = 0.1;
+                const far = 100;
+                const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+                camera.position.set(0, 10, 20);
+
+                const controls = new OrbitControls(camera, canvas);
+                controls.target.set(0, 5, 0);
+                controls.update();
+
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color('black');
+
+                // Ground (plane)
+                {
+                    const planeSize = 200;
+                    const width = 4
+                    const loader = new THREE.TextureLoader();
+                    const texture = loader.load('./textures/ground.png');
+                    texture.wrapS = THREE.RepeatWrapping;
+                    texture.wrapT = THREE.RepeatWrapping;
+                    texture.magFilter = THREE.NearestFilter;
+                    texture.repeat.set(width, width);
+
+                    const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
+                    const planeMat = new THREE.MeshPhongMaterial({
+                        map: texture,
+                        side: THREE.DoubleSide,
+                    });
+                    const mesh = new THREE.Mesh(planeGeo, planeMat);
+                    mesh.rotation.x = Math.PI * -.5;
+                    scene.add(mesh);
+                }
+
+                // Light: Sky
+                {
+                    const skyColor = 0x472c06; // brown
+                    const groundColor = 0x4a5d23;  // moss green
+                    const intensity = 1;
+                    const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+                    scene.add(light);
+                }
+
+                // Light: Directional (from rightside)
+                {
+                    const color = 0xFFFFFF;
+                    const intensity = 0.5;
+                    const light = new THREE.DirectionalLight(color, intensity);
+                    light.position.set(3, 10, 2);
+                    scene.add(light);
+                    scene.add(light.target);
+                }
+
+                function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
+                    const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+                    const halfFovY = THREE.MathUtils.degToRad(camera.fov * .5);
+                    const distance = halfSizeToFitOnScreen / Math.tan(halfFovY);
+                    // compute a unit vector that points in the direction the camera is now
+                    // in the xz plane from the center of the box
+                    const direction = (new THREE.Vector3())
+                        .subVectors(camera.position, boxCenter)
+                        .multiply(new THREE.Vector3(1, 0, 1))
+                        .normalize();
+
+                    // move the camera to a position distance units way from the center
+                    // in whatever direction the camera was from the center already
+                    camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+
+                    // pick some near and far values for the frustum that
+                    // will contain the box.
+                    camera.near = boxSize / 100;
+                    camera.far = boxSize * 100;
+
+                    camera.updateProjectionMatrix();
+
+                    // point the camera to look at the center of the box
+                    camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+                }
+
+                // Mesh #4
+                {
+                    const gltfLoader = new GLTFLoader();
+                    gltfLoader.load('./meshes/Fox/glTF/Fox.gltf', (gltf) => {
+                        const root = gltf.scene;
+                        root.traverse(function (child) {
+                            if (child.isMesh) {
+                                // Change colors
+                                console.log("material: \n", child.material);
+                                const texture = child.material.map;
+                                console.log("texture: \n", texture);
+                            }
+                        });
+
+                        scene.add(root);
+
+                        // compute the box that contains all the stuff
+                        // from root and below
+                        const box = new THREE.Box3().setFromObject(root);
+
+                        const boxSize = box.getSize(new THREE.Vector3()).length();
+                        const boxCenter = box.getCenter(new THREE.Vector3());
+
+                        // set the camera to frame the box
+                        frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
+
+                        // update the Trackball controls to handle the new size
+                        controls.maxDistance = boxSize * 10;
+                        controls.target.copy(boxCenter);
+                        controls.update();
+                    });
+                }
+
+                function resizeRendererToDisplaySize(renderer) {
+                    const canvas = renderer.domElement;
+                    const width = canvas.clientWidth;
+                    const height = canvas.clientHeight;
+                    const needResize = canvas.width !== width || canvas.height !== height;
+                    if (needResize) {
+                        renderer.setSize(width, height, false);
+                    }
+                    return needResize;
+                }
+
+                function render() {
+                    if (resizeRendererToDisplaySize(renderer)) {
+                        const canvas = renderer.domElement;
+                        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                        camera.updateProjectionMatrix();
+                    }
+
+                    renderer.render(scene, camera);
+
+                    requestAnimationFrame(render);
+                }
+                requestAnimationFrame(render);
+            }
+            main();
+        </script>
+
+    <br />
+    <h2 align="left">Abstract</h2>
+        <p>Inspired by Avatar: The Last Airbender, an animated series that recently boomed in popularity after airing back in 2005 about a world of "benders" AKA humans that can control one or more of the four elements (water, earth, fire, air), I set off on the task to produce something replicating these four elements with my newly acquired knowledge of computer graphics. The final results are shown above: four canvases of the same WebGL-based scene (a fox mesh on top of a plane mesh) with different lighting, textures, and shaders to produce four different looks.</p>
+
+    <h2 align="left">Technical Approach</h2>
+        <p>The camera perspective, rendering loop, and mouse controls for all scenes were based <a href="https://threejsfundamentals.org/threejs/lessons/threejs-load-gltf.html">this code</a> from threejsfundamentals.org.</p>
+        <p>Initially I was convinced that writing my own <i>shaders</i> on top of the project 4 code was the way to go. However, I quickly discovered that though employing my own shaders in that code was hassle-free due to the wonderful abstraction barrier that course staff provided between the shader program files and the rest of the rasterization pipeline, this in turn made an attempt to break that abstraction barrier and add customized objects (beyond the given sphere and cloth) a task beyond what I was confident achieving. So I turned to other libraries and thanks to the advice of TA John settled on WebGL, ThreeJS, and glTF as my main tech stack.</p>
+        <p>My first task was to get a fancier mesh on my canvas. I settled on the fox shown above. Then after figuring out how to load a glTF with ThreeJS syntax, I ran into a pivotal problem: applying a custom shader to glTFs. The reader may have to open the following images in a new tab to read the code. </p>
+        <table>
+            <tr>
+                <td align="middle">
+                    <img src="images/inlineShader.PNG" width="480px" />
+                </td>
+                <td align="middle">
+                    <img src="images/inlineShader2.PNG" width="480px" />
+                </td>
+            </tr>
+        </table>
+        <p>The image on the left is my fragment shader that is based on cel shading as defined in <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Smooth_Specular_Highlights">Wikibooks: GLSL Programming</a>. It is in string form to be sent to the GPU (I debugged this by first running my shaders in proj4 then pasting them in string form as a <code>const</code> in my Javascript). The image on the right includes how I sent uniforms to my fragments and, starting from line 319, how I <b>replaced</b> <code>Fox.gltf</code>'s material map with my shader. This is significant because this was the only way I found to integrate a custom shader into a glTF, which is a nicely packed file format for 3D scenes and models (which I now know is not customization-friendly), but this method <i>overwrote</i> lighting effects that were written in ThreeJS <i>outside</i> of this function fed into <code>glTFLoader.load</code>. We can see this in the first canvas above, which is what the pictured code resulted in. Even if I added a point light below the fox in the overall WebGL scene (as I did in the 2nd canvas "Fire"), it would not have an effect on the apparent lighting on the fox. This implies that if I wanted to achieve all visual effects through a custom shader, I would have one two long strings of shader program that I fed into this glTF and nothing else outside of that code, essentially undermining the usefulness of ThreeJS and producing code that just doesn't look appealing to write or read and would be diffuclt to debug. So after the first canvas ("Air"), I called an end to my pursuit of writing custom shaders.</p>
+        <p>The second phase of my technical approach involved using my knowledge of lighting and texture mapping, which albeit less technical in implementation, was a real challenge for me as someone not at all confident in my visual art abilities. The first thing I did was using texture mapping to create different "grounds" for the foxes to stand on. This was achieved with a built-in ThreeJS texture loader that I would set as the mesh's material (you may find the texture images in the source code under <code>docs/textures/</code>). Then, I asked questions like "what would putting a point light here do?" "what if I changed the color?" "what should the intensity drop off be?" For example, in the 2nd mesh "Fire," I tried to simulate the light from flames with two point lights--one directly under the fox at coordinates <code>(0,0,0)</code> and one below its snout at <code>(0,15,50)</code>. In the 4th mesh "Earth," I tried to create a dull, flat look that was almost diffuse-looking but unlike Phong shading would preserve the sharp geometric edges, because I thought the simple geometric mesh look had an "earthy" feel to it. After playing around with different light types and angles, I eventually settled on a hemisphere light (directly above scene) with color fading from the "sky color" brown (<code>0x472c06</code>) to a "ground color" of moss green (<code>0x4a5d23</code>) which lit the geometric mesh without making it look specular like a white light would (such as in the 3rd mesh "water"), and gave the fox's underbelly a mossy green tint. As well as a directional light at position <code>(3,10,2)</code> which is the front-right of the fox and shining towards the origin. This light is white but at <code>intensity=0.5</code> to create a realistic visual where one side of the fox is lit as if it is standing in the sun, without compromising the dim look I was going for.</p>
+        <p>At some point I stumbled upon the <code>Fog</code> built-in class of ThreeJS. I played around with it and used it in the first mesh "Air" because, well, that's where fog would be. Unfortunately, due to the problem I outlined in the previous pargraph of custom shaders overwriting all other WebGL components, the blurring-into-background-color effect that defines the fog only applies to the circular plane that the fox stands on and not the fox itself. You may see the resulting effect of "fog" by zooming in/out and looking closely for a white circular plane that the fox is standing on which should fade into the background light blue as you zoom out and become more clear as you zoom in.</p>
+
+    <h2 align="left">Evaluation</h2>
+        <div class="flex_container">
+            <div class="flex_left">
+                <div class="polaroid">
+                    <img src="images/test1.PNG" style="width:330px" />
+                </div>
+            </div>
+            <div class="flex_right">
+                <p>My success metrics were:</p>
+            <ul>
+                <li style="margin-bottom: 6px;">If I show a random person the results of the four shaders, what is the probability that they think Avatar: The Last Airbender?</li>
+                <li style="margin-bottom: 6px;">Rendering speed is similar to those implemented in project 4</li>
+                <li style="margin-bottom: 6px;">Accuracy in apperance of water, earth, fire, air as seen in real life</li>
+            </ul>
+            <p style="line-height: 1.25;">I think I did an acceptable job. The screenshot on the left was truly the first person I messaged so I would consider the first evaluation metric passed! I guess the second metric doesn't apply anymore as I pivioted away from building on top of project 4 code. Though the rendering seems to be instanteanous, which is likely due to the lack of shadows in all my scenes (According to ThreeGL documentation, shadow ray tracing is expensive for the built-in light sources they provide). My weakest performance was in passing the third success metric. The flat plane geometry is not realistic. </p>
+            <p style="line-height: 1.25;">If I were to spend more time on this project, I would first tackle bump mapping on the ground that the fox stands to produce more realistic lava and dirt for the Fire and Earth scenes, respectively. Then I would add a reflective component to the Water scene to more accurately simulate water.</p>
+            </div>
+        </div>
+
+        <div class="flex_container">
+            <div class="flex_left">
+
+            <h2 align="left">Things I Learned</h2>
+                <ul style="width:500px">
+                    <li style="margin-bottom: 10px;">The project 4 source code is so beautifully produced and presented to students.</li>
+                    <li style="margin-bottom: 10px;">WebGL + ThreeJS is a very powerful combo with what seems to me like endless possibilities and huge potential to create awesome graphics.</li>
+                    <li style="margin-bottom: 10px;">Because Shaders run on the GPU, the way we write them and incorporate them in our code is atypical. Debugging becomes difficult as well.</li>
+                    <li style="margin-bottom: 10px;">Shaders' strengths are also their weakness. They run in parallel on the GPU which means we have to be especially mindful about where in the rasterization pipeline we are utilizing them, which may not be apparent in our code and is something the programmer must account for themselves.</li>
+                    <li style="margin-bottom: 10px;">In class we often defaulted to white color sources and focused on how their trajectory created different visual effects. However, varying light source <i>colors</i> is also a powerful technique to produce different visual effects.</li>
+                </ul>
+                <br />
+
+            <h2 align="left">References</h2>
+                <p>Code sources:</p>
+                <p style="padding: 0 0 0 20px; line-height: 2.0;">
+                    <a href="https://threejs.org/docs/">ThreeJS docs</a> by the Khronos Group<br />
+                    <a href="https://github.com/KhronosGroup/glTF-Sample-Models">glTF Library</a> by the Khronos Group<br />
+                    <a href="https://threejsfundamentals.org/threejs/lessons/threejs-load-gltf.html">Loading glTF</a> by threejsfundamentals.org<br /> </p>
+                <p>Knowledge sources:</p>
+                <p style="padding: 0 0 0 20px; line-height: 2.0;">
+                    <a href="https://www.youtube.com/watch?v=T-HXmQAMhG0">Shaders 101</a> by Makin' Stuff Look Good<br />
+                    <a href="https://en.wikibooks.org/wiki/GLSL_Programming/Unity/Toon_Shading">Toon Shading</a> Wikibooks Page<br />
+                    <a href="https://www.youtube.com/watch?v=kB0ZVUrI4Aw">WebGL Tutorial Series</a> by Indigo Code on Youtube<br />
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL">Lighting in WebGL</a> by Mozilla<br />
+                    <a href="https://dev.to/maniflames/creating-a-custom-shader-in-threejs-3bhi">Custom Shaders in ThreeJS</a> by Maniflames<br /> </p>
+            </div>
+
+            <div class="flex_right">
+
+                <div class="polaroid">
+                    <img src="images/test0.png" style="width:100%" />
+                    <div class="container">
+                        <p><b>Final Result</b></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    <br /><br />
+    <h3 align="middle">End</h3>
+    </div>
+
 
 </body>
 </html>
