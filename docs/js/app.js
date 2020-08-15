@@ -1,5 +1,5 @@
 var cubeRotation = 0.0;
-const texturePath = "/textures/engage.png"
+const texturePath = "textures/engage.png"
 
 main();
 
