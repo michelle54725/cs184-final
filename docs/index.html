@@ -11,7 +11,7 @@
 
     <h1 align="middle">CS 184: Computer Graphics and Imaging | Summer 2020</h1>
     <h2 align="middle">Michelle Mao</h2>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Proposal')">Proposal</button>
         <button class="tablinks" onclick="openTab(event, 'Milestone')">Milestone Report</button>
@@ -105,8 +105,8 @@
             Oops! Your browser does not support HTML5.
         </canvas>
         <br />
-        <script src="/js/gl-matrix.js"></script>
-        <script src="/js/app.js"></script>
+        <script src="js/gl-matrix.js"></script>
+        <script src="js/app.js"></script>
 
         </br>
         <a href="https://docs.google.com/document/d/1uD7v1t9abujCZGSibI2V1CcjVzoFBMB8Vj1E2K0c58g/edit?usp=sharing">Proposal feedback</a>
@@ -174,7 +174,6 @@
             import * as THREE from './build/three.module.js';
             import { GLTFLoader } from './examples/jsm/loaders/GLTFLoader.js';
             import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
-            import { OceanShaders } from './examples/jsm/shaders/OceanShaders.js';
 
             function main() {
                 const canvas = document.querySelector('#c1');
@@ -829,11 +828,8 @@
                         const root = gltf.scene;
                         root.traverse(function (child) {
                             if (child.isMesh) {
-                                // Change colors
-                                console.log("material: \n", child.material);
-                                const texture = child.material.map;
-                                console.log("texture: \n", texture);
-                            }
+                                // optionally change colors here
+                              }
                         });
 
                         scene.add(root);
